@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.0"
+        implementation 'com.github.ap-dev:app:v4.2.2'
+        implementation("vc908.factory:$pipeSdkVersion") {
+            transitive = true
+        }
+        implementation("vc908.:gcmintegration:$pipeSdkVersion") {
+            transitive = true
+        }
+        implementation("vc908.jpushintegration:$pipeSdkVersion") {
+            transitive = true
+        }
+        implementation files('libs/InApp-3.6.3.jar')
+        implementation("com.blox:blox-android-sdk-chat:2.6.1")
+        //compile "com.blox:blox-android-sdk-chat:$versions.qbSdkVersion"
+        //compile "com.blox:blox-android-sdk-content:$versions.qbSdkVersion"
+        //compile "com.blox:blox-android-sdk-customobjects:$versions.qbSdkVersion"
+        //compile "com.blox:blox-android-sdk-location:$versions.qbSdkVersion"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
